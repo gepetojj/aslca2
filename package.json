@@ -18,9 +18,12 @@
 		"commit": "git cz"
 	},
 	"dependencies": {
+		"@payloadcms/db-vercel-postgres": "^3.35.1",
 		"@payloadcms/next": "3.35.1",
 		"@payloadcms/payload-cloud": "3.35.1",
 		"@payloadcms/richtext-lexical": "3.35.1",
+		"@payloadcms/storage-vercel-blob": "^3.35.1",
+		"@payloadcms/translations": "^3.35.1",
 		"cross-env": "^7.0.3",
 		"graphql": "^16.10.0",
 		"next": "15.3.1",
@@ -49,8 +52,10 @@
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
+			"bufferutil",
 			"esbuild",
-			"sharp"
+			"sharp",
+			"utf-8-validate"
 		]
 	},
 	"config": {
