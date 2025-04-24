@@ -1,0 +1,61 @@
+{
+	"name": "aslca2",
+	"description": "Website institucional da Academia Santanense de Letras, Ciências e Artes",
+	"version": "1.0.0",
+	"license": "MIT",
+	"type": "module",
+	"packageManager": "pnpm@10.9.0",
+	"scripts": {
+		"build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+		"dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+		"devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+		"generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+		"generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+		"lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
+		"payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+		"start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+		"format": "prettier --write .",
+		"commit": "git cz"
+	},
+	"dependencies": {
+		"@payloadcms/next": "3.35.1",
+		"@payloadcms/payload-cloud": "3.35.1",
+		"@payloadcms/richtext-lexical": "3.35.1",
+		"cross-env": "^7.0.3",
+		"graphql": "^16.10.0",
+		"next": "15.3.1",
+		"payload": "3.35.1",
+		"react": "19.1.0",
+		"react-dom": "19.1.0",
+		"sharp": "0.34.1"
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3.3.1",
+		"@trivago/prettier-plugin-sort-imports": "^5.2.2",
+		"@types/node": "^22.14.1",
+		"@types/react": "19.1.2",
+		"@types/react-dom": "19.1.2",
+		"commitizen": "^4.3.1",
+		"cz-conventional-changelog": "^3.3.0",
+		"eslint": "^9.25.1",
+		"eslint-config-next": "15.3.1",
+		"prettier": "^3.5.3",
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"typescript": "5.8.3"
+	},
+	"engines": {
+		"node": "^18.20.2 || >=20.9.0",
+		"pnpm": "^9 || ^10"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild",
+			"sharp"
+		]
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	}
+}
