@@ -4,6 +4,9 @@ import { withPayload } from "@payloadcms/next/withPayload";
 const nextConfig = {
 	reactStrictMode: true,
 	poweredByHeader: false,
+	experimental: {
+		optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
+	},
 };
 
 export default withPayload(nextConfig, { devBundleServerPackages: false });

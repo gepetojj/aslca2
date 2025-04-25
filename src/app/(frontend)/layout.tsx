@@ -1,6 +1,8 @@
 import React from "react";
 
-import "./styles.css";
+import { MantineProvider } from "@mantine/core";
+
+import "./globals.css";
 
 export const metadata = {
 	description: "Site institucional e acervo digital da Academia Santanense de Letras, Ciências e Artes",
@@ -18,7 +20,9 @@ export default async function RootLayout({
 				lang="pt-BR"
 				dir="ltr"
 			>
-				<body>{children}</body>
+				<body>
+					<MantineProvider>{children}</MantineProvider>
+				</body>
 			</html>
 		</>
 	);

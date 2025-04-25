@@ -18,6 +18,8 @@
 		"commit": "git cz"
 	},
 	"dependencies": {
+		"@mantine/core": "^7.17.5",
+		"@mantine/hooks": "^7.17.5",
 		"@payloadcms/db-vercel-postgres": "^3.35.1",
 		"@payloadcms/next": "3.35.1",
 		"@payloadcms/payload-cloud": "3.35.1",
@@ -25,6 +27,7 @@
 		"@payloadcms/richtext-lexical": "3.35.1",
 		"@payloadcms/storage-vercel-blob": "^3.35.1",
 		"@payloadcms/translations": "^3.35.1",
+		"@tabler/icons-react": "^3.31.0",
 		"cross-env": "^7.0.3",
 		"graphql": "^16.10.0",
 		"next": "15.3.1",
@@ -36,6 +39,7 @@
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.3.1",
+		"@tailwindcss/postcss": "^4.1.4",
 		"@trivago/prettier-plugin-sort-imports": "^5.2.2",
 		"@types/node": "^22.14.1",
 		"@types/react": "19.1.2",
@@ -44,8 +48,10 @@
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^9.25.1",
 		"eslint-config-next": "15.3.1",
+		"postcss": "^8.5.3",
 		"prettier": "^3.5.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
+		"tailwindcss": "^4.1.4",
 		"typescript": "5.8.3"
 	},
 	"engines": {
