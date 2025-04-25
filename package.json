@@ -21,6 +21,7 @@
 		"@payloadcms/db-vercel-postgres": "^3.35.1",
 		"@payloadcms/next": "3.35.1",
 		"@payloadcms/payload-cloud": "3.35.1",
+		"@payloadcms/plugin-search": "^3.35.1",
 		"@payloadcms/richtext-lexical": "3.35.1",
 		"@payloadcms/storage-vercel-blob": "^3.35.1",
 		"@payloadcms/translations": "^3.35.1",
@@ -30,7 +31,8 @@
 		"payload": "3.35.1",
 		"react": "19.1.0",
 		"react-dom": "19.1.0",
-		"sharp": "0.34.1"
+		"sharp": "0.34.1",
+		"slugify": "^1.6.6"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.3.1",

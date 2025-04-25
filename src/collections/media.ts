@@ -23,5 +23,8 @@ export const Media: CollectionConfig = {
 		singular: "Mídia",
 		plural: "Mídias",
 	},
-	upload: true,
+	upload: {
+		crop: true,
+		focalPoint: true,
+	},
 };

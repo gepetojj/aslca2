@@ -5,12 +5,15 @@ import { fileURLToPath } from "url";
 
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
+import { searchPlugin } from "@payloadcms/plugin-search";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import { pt } from "@payloadcms/translations/languages/pt";
 
 import { Academics } from "./collections/academics";
+import { BlogPosts } from "./collections/blog-posts";
 import { Media } from "./collections/media";
+import { News } from "./collections/news";
 import { Patrons } from "./collections/patrons";
 import { Users } from "./collections/users";
 import { Citation } from "./globals/citation";
@@ -33,7 +36,7 @@ export default buildConfig({
 		},
 		user: Users.slug,
 	},
-	collections: [Users, Media, Patrons, Academics],
+	collections: [Users, Media, Patrons, Academics, News, BlogPosts],
 	globals: [Citation, Gallery],
 	db: vercelPostgresAdapter({
 		pool: {
@@ -52,6 +55,15 @@ export default buildConfig({
 			},
 			enabled: process.env.NODE_ENV === "production",
 			token: process.env.BLOB_READ_WRITE_TOKEN,
+		}),
+		searchPlugin({
+			collections: ["blog-posts", "news", "academics", "patrons"],
+			defaultPriorities: {
+				"blog-posts": 20,
+				"news": 20,
+				"academics": 10,
+				"patrons": 10,
+			},
 		}),
 	],
 	secret: process.env.PAYLOAD_SECRET || "",
