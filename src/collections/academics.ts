@@ -23,6 +23,40 @@ export const Academics: CollectionConfig = {
 			},
 		},
 		{
+			label: "Tipo",
+			name: "type",
+			type: "select",
+			options: [
+				{
+					label: "Efetivo",
+					value: "active",
+				},
+				{
+					label: "Benemérito",
+					value: "benemeritus",
+				},
+				{
+					label: "Honorário",
+					value: "honorary",
+				},
+				{
+					label: "Correspondente",
+					value: "correspondent",
+				},
+				{
+					label: "In Memoriam",
+					value: "inMemoriam",
+				},
+			],
+			defaultValue: "active",
+			required: true,
+			hasMany: false,
+			admin: {
+				isClearable: false,
+				isSortable: false,
+			},
+		},
+		{
 			label: "Patrono",
 			name: "patron",
 			type: "join",

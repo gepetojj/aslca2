@@ -9,10 +9,12 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import { pt } from "@payloadcms/translations/languages/pt";
 
-import { Academics } from "./collections/academic";
+import { Academics } from "./collections/academics";
 import { Media } from "./collections/media";
-import { Patrons } from "./collections/patron";
+import { Patrons } from "./collections/patrons";
 import { Users } from "./collections/users";
+import { Citation } from "./globals/citation";
+import { Gallery } from "./globals/gallery";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -32,6 +34,7 @@ export default buildConfig({
 		user: Users.slug,
 	},
 	collections: [Users, Media, Patrons, Academics],
+	globals: [Citation, Gallery],
 	db: vercelPostgresAdapter({
 		pool: {
 			connectionString: process.env.POSTGRES_URL || "",
