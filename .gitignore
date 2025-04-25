@@ -41,3 +41,5 @@ next-env.d.ts
 .env
 
 /media
+/news
+/blog-posts
