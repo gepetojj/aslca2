@@ -116,7 +116,7 @@ export default async function HomePage() {
 			</section>
 
 			{/* Featured Academicians */}
-			<section className="bg-amber-50 py-16">
+			{/* <section className="bg-amber-50 py-16">
 				<div className="container mx-auto px-4">
 					<div className="mb-12 text-center">
 						<h3 className="mb-4 font-serif text-3xl font-bold text-gray-800">Membros em Destaque</h3>
@@ -164,7 +164,7 @@ export default async function HomePage() {
 						</a>
 					</div>
 				</div>
-			</section>
+			</section> */}
 
 			{/* Events */}
 			<section className="py-16">

@@ -26,7 +26,7 @@ export default async function Page() {
 
 				<section className="py-16">
 					<div className="container mx-auto px-4">
-						<div className="rounded-lg bg-white p-8">
+						<div className="rounded-lg p-8">
 							<div className="mb-10">
 								<h2 className="mb-6 flex items-center font-serif text-2xl font-bold text-gray-800">
 									<IconMapPin

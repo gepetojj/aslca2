@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import Image from "next/image";
 import { memo, useCallback, useEffect, useState } from "react";
 
@@ -74,17 +75,15 @@ export const Gallery: React.FC<Props> = memo(function Gallery({
 	}
 
 	return (
-		<div
-			className="w-full overflow-hidden rounded-lg shadow-md"
-			style={{
-				aspectRatio: aspectRatio,
-				maxHeight: maxHeight,
-			}}
-		>
+		<div className="w-full">
 			<div
-				className="relative h-full w-full"
+				className="relative h-full w-full overflow-hidden rounded-lg shadow-md"
 				onMouseEnter={handleMouseEnter}
 				onMouseLeave={handleMouseLeave}
+				style={{
+					aspectRatio: aspectRatio,
+					maxHeight: maxHeight,
+				}}
 			>
 				{images.map((image, index) => (
 					<div
@@ -179,6 +178,12 @@ export const Gallery: React.FC<Props> = memo(function Gallery({
 				<div className="absolute top-4 right-4 z-30 rounded-full bg-black/50 px-3 py-1 text-sm text-white backdrop-blur-sm">
 					{currentSlide + 1}/{images.length}
 				</div>
+			</div>
+
+			<div className="w-full max-w-full truncate">
+				<span className="mt-1 w-full max-w-full truncate text-sm text-neutral-800">
+					{images[currentSlide].alt}
+				</span>
 			</div>
 		</div>
 	);
