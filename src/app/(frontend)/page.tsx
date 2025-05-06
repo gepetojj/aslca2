@@ -30,20 +30,26 @@ export default async function HomePage() {
 			<Header />
 
 			<section className="relative h-96 overflow-hidden bg-gray-200">
-				<div className="absolute inset-0 z-10 bg-gradient-to-r from-amber-900/70 to-amber-400/40"></div>
+				<div className="absolute inset-0 z-10 bg-gradient-to-r from-amber-800/70 to-amber-400/40"></div>
 				<div className="relative z-20 container mx-auto flex h-full items-center px-4">
 					<div className="max-w-2xl text-white">
 						<h2 className="mb-4 font-serif text-4xl font-bold md:text-5xl">
 							Academia Santanense de Letras, Ciências e Artes
 						</h2>
 						<p className="mb-6 text-lg">
-							Preservando a cultura e promovendo o conhecimento em Santana do Ipanema
+							Preservando a cultura e promovendo o conhecimento em Santana do Ipanema.
 						</p>
 						<div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
-							<button className="rounded-md bg-white px-6 py-3 font-medium text-amber-900 transition-colors hover:bg-gray-100">
+							<button
+								type="button"
+								className="cursor-pointer rounded-md bg-white px-6 py-3 font-medium text-amber-900 transition-colors hover:bg-gray-100"
+							>
 								Conheça nossa história
 							</button>
-							<button className="rounded-md border border-white px-6 py-3 font-medium text-white transition-colors hover:bg-white/10">
+							<button
+								type="button"
+								className="cursor-pointer rounded-md border border-white px-6 py-3 font-medium text-white transition-colors hover:bg-white/10"
+							>
 								Eventos
 							</button>
 						</div>
