@@ -10,7 +10,7 @@ export const Header: React.FC = memo(function Header() {
 			<div className="container mx-auto px-4 py-3">
 				<div className="flex items-center justify-between">
 					<div className="flex items-center space-x-3">
-						<div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-amber-700">
+						<div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full">
 							<Image
 								src={logo}
 								alt="Logo da ASLCA"

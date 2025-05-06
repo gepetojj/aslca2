@@ -58,12 +58,12 @@ export default async function HomePage() {
 							>
 								Conheça nossa história
 							</button>
-							<button
-								type="button"
-								className="cursor-pointer rounded-md border border-white px-6 py-3 font-medium text-white transition-colors hover:bg-white/10"
+							<Link
+								href="/eventos"
+								className="cursor-pointer rounded-md border border-white px-6 py-3 text-center font-medium text-white transition-colors hover:bg-white/10"
 							>
 								Eventos
-							</button>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -108,7 +108,7 @@ export default async function HomePage() {
 			{/* Content Section */}
 			<section className="py-16">
 				<div className="container mx-auto px-4">
-					<div className="grid gap-12 md:grid-cols-2">
+					<div className="grid items-start gap-12 md:grid-cols-2">
 						<LatestNews />
 						<LatestBlogPost />
 					</div>
