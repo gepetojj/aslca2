@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getPayload } from "payload";
 
 import { Footer } from "@/components/ui/footer";
@@ -15,14 +16,25 @@ export const revalidate = 300; // 5 minutos
 export default async function HomePage() {
 	const payload = await getPayload({ config: payloadConfig });
 
-	const citation = await payload.findGlobal({
-		slug: "citation",
-	});
-
-	const gallery = await payload.findGlobal({
-		slug: "gallery",
-		depth: 1,
-	});
+	const [citation, gallery, events] = await Promise.all([
+		payload.findGlobal({
+			slug: "citation",
+		}),
+		payload.findGlobal({
+			slug: "gallery",
+			depth: 1,
+		}),
+		payload.find({
+			collection: "events",
+			limit: 3,
+			sort: "-date",
+			where: {
+				date: {
+					greater_than_equal: new Date().toISOString(),
+				},
+			},
+		}),
+	]);
 	const images = (gallery?.images as Media[]) || [];
 
 	return (
@@ -159,8 +171,8 @@ export default async function HomePage() {
 				<div className="container mx-auto px-4">
 					<div className="mb-10 flex items-center justify-between">
 						<h3 className="font-serif text-3xl font-bold text-gray-800">Próximos Eventos</h3>
-						<a
-							href="#"
+						<Link
+							href="/eventos"
 							className="flex items-center font-medium text-amber-800 hover:text-amber-900"
 						>
 							Ver calendário completo
@@ -178,71 +190,111 @@ export default async function HomePage() {
 									d="M14 5l7 7m0 0l-7 7m7-7H3"
 								></path>
 							</svg>
-						</a>
+						</Link>
 					</div>
 
-					<div className="grid gap-8 md:grid-cols-3">
-						{[
-							{ date: "25 Abr", title: "Palestra: Literatura Alagoana", location: "Auditório Central" },
-							{ date: "30 Abr", title: "Sessão Solene de Posse", location: "Sede da Academia" },
-							{ date: "05 Mai", title: "Lançamento de Livro", location: "Biblioteca Municipal" },
-						].map((event, index) => (
-							<div
-								key={index}
-								className="overflow-hidden rounded-lg bg-white shadow-md"
-							>
-								<div className="bg-amber-800 p-3 text-center text-white">
-									<p className="text-lg font-bold">{event.date}</p>
-								</div>
-								<div className="p-6">
-									<h4 className="mb-2 text-xl font-bold text-gray-800">{event.title}</h4>
-									<div className="mb-4 flex items-start">
-										<svg
-											className="mt-0.5 mr-2 h-5 w-5 text-amber-800"
-											fill="none"
-											stroke="currentColor"
-											viewBox="0 0 24 24"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												strokeWidth="2"
-												d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-											></path>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												strokeWidth="2"
-												d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-											></path>
-										</svg>
-										<p className="text-gray-600">{event.location}</p>
+					{events.docs.length > 0 ? (
+						<div className="grid gap-8 md:grid-cols-3">
+							{events.docs.map((event, index) => (
+								<div
+									key={index}
+									className="overflow-hidden rounded-lg bg-white shadow-md"
+								>
+									<div className="bg-amber-800 p-3 text-center text-white">
+										<p className="text-lg font-bold">
+											{new Date(event.date).toLocaleString("pt-BR", {
+												day: "2-digit",
+												month: "long",
+												year:
+													new Date(event.date).getFullYear() > new Date().getFullYear()
+														? "numeric"
+														: undefined,
+												hour: "2-digit",
+												minute: "2-digit",
+											})}
+										</p>
 									</div>
-									<a
-										href="#"
-										className="flex items-center font-medium text-amber-800 hover:text-amber-900"
-									>
-										Saiba mais
-										<svg
-											className="ml-2 h-4 w-4"
-											fill="none"
-											stroke="currentColor"
-											viewBox="0 0 24 24"
-											xmlns="http://www.w3.org/2000/svg"
+									<div className="p-6">
+										<h4 className="mb-2 text-xl font-bold text-gray-800">{event.title}</h4>
+										<div className="mb-4 flex items-start">
+											<svg
+												className="mt-0.5 mr-2 h-5 w-5 text-amber-800"
+												fill="none"
+												stroke="currentColor"
+												viewBox="0 0 24 24"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth="2"
+													d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+												></path>
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth="2"
+													d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+												></path>
+											</svg>
+											<p className="text-gray-600">{event.location}</p>
+										</div>
+										<Link
+											href={`/eventos/${event.id}`}
+											className="flex items-center font-medium text-amber-800 hover:text-amber-900"
 										>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												strokeWidth="2"
-												d="M14 5l7 7m0 0l-7 7m7-7H3"
-											></path>
-										</svg>
-									</a>
+											Saiba mais
+											<svg
+												className="ml-2 h-4 w-4"
+												fill="none"
+												stroke="currentColor"
+												viewBox="0 0 24 24"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth="2"
+													d="M14 5l7 7m0 0l-7 7m7-7H3"
+												></path>
+											</svg>
+										</Link>
+									</div>
 								</div>
+							))}
+						</div>
+					) : (
+						<div className="rounded-lg bg-white p-10 text-center">
+							<div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-amber-50">
+								<svg
+									className="h-10 w-10 text-amber-800"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="2"
+										d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+									></path>
+								</svg>
 							</div>
-						))}
-					</div>
+							<h4 className="mb-2 font-serif text-xl font-bold text-gray-800">
+								Nenhum evento programado
+							</h4>
+							<p className="mb-6 text-gray-600">
+								Não há eventos próximos agendados no momento. Por favor, verifique novamente em breve.
+							</p>
+							<a
+								href="/eventos"
+								className="inline-block rounded-md border border-amber-800 px-6 py-3 font-medium text-amber-800 transition-colors hover:bg-amber-800 hover:text-white"
+							>
+								Ver eventos passados
+							</a>
+						</div>
+					)}
 				</div>
 			</section>
 

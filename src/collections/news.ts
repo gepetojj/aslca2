@@ -1,4 +1,5 @@
 import { randomInt } from "crypto";
+import { revalidatePath } from "next/cache";
 import type { CollectionConfig } from "payload";
 import slugify from "slugify";
 
@@ -87,6 +88,13 @@ export const News: CollectionConfig = {
 			required: true,
 		},
 	],
+	hooks: {
+		afterChange: [
+			() => {
+				revalidatePath("/");
+			},
+		],
+	},
 	labels: {
 		singular: "Notícia",
 		plural: "Notícias",

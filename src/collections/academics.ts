@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import type { CollectionConfig } from "payload";
 
 export const Academics: CollectionConfig = {
@@ -90,6 +91,13 @@ export const Academics: CollectionConfig = {
 			required: true,
 		},
 	],
+	hooks: {
+		afterChange: [
+			() => {
+				revalidatePath("/");
+			},
+		],
+	},
 	labels: {
 		singular: "Acadêmico",
 		plural: "Acadêmicos",

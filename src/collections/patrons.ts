@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import type { CollectionConfig } from "payload";
 
 export const Patrons: CollectionConfig = {
@@ -55,6 +56,13 @@ export const Patrons: CollectionConfig = {
 			required: true,
 		},
 	],
+	hooks: {
+		afterChange: [
+			() => {
+				revalidatePath("/");
+			},
+		],
+	},
 	labels: {
 		singular: "Patrono",
 		plural: "Patronos",
