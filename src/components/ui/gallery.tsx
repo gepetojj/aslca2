@@ -119,7 +119,7 @@ export const Gallery: React.FC<Props> = memo(function Gallery({
 					<>
 						<button
 							onClick={prevSlide}
-							className="absolute top-1/2 left-4 z-30 -translate-y-1/2 rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition-colors hover:bg-white/40"
+							className="absolute top-1/2 left-4 z-30 -translate-y-1/2 cursor-pointer rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition-colors hover:bg-white/40"
 							aria-label="Imagem anterior"
 						>
 							<svg
@@ -138,7 +138,7 @@ export const Gallery: React.FC<Props> = memo(function Gallery({
 						</button>
 						<button
 							onClick={nextSlide}
-							className="absolute top-1/2 right-4 z-30 -translate-y-1/2 rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition-colors hover:bg-white/40"
+							className="absolute top-1/2 right-4 z-30 -translate-y-1/2 cursor-pointer rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition-colors hover:bg-white/40"
 							aria-label="Próxima imagem"
 						>
 							<svg
