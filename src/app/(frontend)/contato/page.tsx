@@ -4,7 +4,7 @@ import { IconBrandInstagram, IconClock, IconMail, IconMapPin, IconPhone } from "
 
 export const metadata = {
 	title: "Contato | Academia Santanense de Letras, Ciências e Artes",
-	description: "Entre em contato com a Academia Santanense de Letras, Ciências e Artes",
+	description: "Entre em contato com a Academia Santanense de Letras, Ciências e Artes de Santana do Ipanema/AL",
 };
 
 export default async function Page() {

@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { memo, useState } from "react";
 
-import logo from "@/public/logo-aslca.webp";
-import { ActionIcon, Button, Drawer } from "@mantine/core";
+import logo from "@/assets/logo-aslca.webp";
+import { ActionIcon, Button, Drawer, Menu } from "@mantine/core";
 import { useViewportSize } from "@mantine/hooks";
 import { IconMenu2 } from "@tabler/icons-react";
 
@@ -42,12 +42,34 @@ export const Header: React.FC = memo(function Header() {
 						>
 							Início
 						</Link>
-						<Link
-							href="/"
-							className="font-medium text-gray-700 transition-colors hover:text-amber-800"
+						<Menu
+							trigger="hover"
+							position="bottom"
+							withArrow
+							classNames={{
+								dropdown: "font-serif",
+							}}
 						>
-							Sobre
-						</Link>
+							<Menu.Target>
+								<button className="font-medium text-gray-700 transition-colors hover:text-amber-800">
+									Sobre
+								</button>
+							</Menu.Target>
+							<Menu.Dropdown>
+								<Menu.Item
+									component={Link}
+									href="/sobre/historia"
+								>
+									História
+								</Menu.Item>
+								<Menu.Item
+									component={Link}
+									href="/sobre/estatuto"
+								>
+									Estatuto
+								</Menu.Item>
+							</Menu.Dropdown>
+						</Menu>
 						<Link
 							href="/"
 							className="font-medium text-gray-700 transition-colors hover:text-amber-800"
@@ -102,15 +124,54 @@ export const Header: React.FC = memo(function Header() {
 				size="md"
 			>
 				<nav className="flex flex-col space-y-4">
-					{["Início", "Sobre", "Cadeiras", "Notícias", "Blog", "Contato"].map(item => (
-						<a
-							key={item}
-							href="#"
-							className="font-medium text-gray-700 transition-colors hover:text-amber-800"
-						>
-							{item}
-						</a>
-					))}
+					<Link
+						href="/"
+						className="font-medium text-gray-700 transition-colors hover:text-amber-800"
+					>
+						Início
+					</Link>
+					<Link
+						href="/sobre/historia"
+						className="font-medium text-gray-700 transition-colors hover:text-amber-800"
+					>
+						História
+					</Link>
+					<Link
+						href="/sobre/estatuto"
+						className="font-medium text-gray-700 transition-colors hover:text-amber-800"
+					>
+						Estatuto
+					</Link>
+					<Link
+						href="/academicos"
+						className="font-medium text-gray-700 transition-colors hover:text-amber-800"
+					>
+						Acadêmicos
+					</Link>
+					<Link
+						href="/patronos"
+						className="font-medium text-gray-700 transition-colors hover:text-amber-800"
+					>
+						Patronos
+					</Link>
+					<Link
+						href="/noticias"
+						className="font-medium text-gray-700 transition-colors hover:text-amber-800"
+					>
+						Notícias
+					</Link>
+					<Link
+						href="/blog"
+						className="font-medium text-gray-700 transition-colors hover:text-amber-800"
+					>
+						Blog
+					</Link>
+					<Link
+						href="/contato"
+						className="font-medium text-gray-700 transition-colors hover:text-amber-800"
+					>
+						Contato
+					</Link>
 					<Button
 						component={Link}
 						href="/admin"

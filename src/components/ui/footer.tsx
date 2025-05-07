@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { memo } from "react";
 
-import logo from "@/public/logo-aslca.webp";
+import logo from "@/assets/logo-aslca.webp";
 import { IconBrandInstagram, IconMail, IconMapPin } from "@tabler/icons-react";
 
 export const Footer: React.FC = memo(function Footer() {

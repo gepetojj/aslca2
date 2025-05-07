@@ -28,18 +28,22 @@
 		"@payloadcms/storage-vercel-blob": "^3.35.1",
 		"@payloadcms/translations": "^3.35.1",
 		"@tabler/icons-react": "^3.31.0",
+		"@tailwindcss/typography": "^0.5.16",
 		"clsx": "^2.1.1",
 		"cross-env": "^7.0.3",
 		"graphql": "^16.10.0",
 		"next": "15.3.1",
 		"payload": "3.35.1",
+		"pdfjs-dist": "4.8.69",
 		"react": "19.1.0",
 		"react-dom": "19.1.0",
+		"react-pdf": "^9.2.1",
 		"sharp": "0.34.1",
 		"slugify": "^1.6.6"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.3.1",
+		"@next/eslint-plugin-next": "^15.3.2",
 		"@tailwindcss/postcss": "^4.1.4",
 		"@trivago/prettier-plugin-sort-imports": "^5.2.2",
 		"@types/node": "^22.14.1",
@@ -49,6 +53,7 @@
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^9.25.1",
 		"eslint-config-next": "15.3.1",
+		"eslint-plugin-react-hooks": "^5.2.0",
 		"postcss": "^8.5.3",
 		"prettier": "^3.5.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
@@ -62,6 +67,7 @@
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"bufferutil",
+			"canvas",
 			"esbuild",
 			"sharp",
 			"utf-8-validate"
