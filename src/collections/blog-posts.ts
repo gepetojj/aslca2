@@ -92,6 +92,8 @@ export const BlogPosts: CollectionConfig = {
 		afterChange: [
 			() => {
 				revalidatePath("/");
+				revalidatePath("/blog");
+				revalidatePath("/blog/[slug]", "page");
 			},
 		],
 	},

@@ -92,6 +92,8 @@ export const News: CollectionConfig = {
 		afterChange: [
 			() => {
 				revalidatePath("/");
+				revalidatePath("/noticias");
+				revalidatePath("/noticias/[slug]", "page");
 			},
 		],
 	},

@@ -7,14 +7,12 @@ import "react-pdf/dist/esm/Page/TextLayer.css";
 
 import { Footer } from "@/components/ui/footer";
 import { Header } from "@/components/ui/header";
-import { useViewportSize } from "@mantine/hooks";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.min.mjs", import.meta.url).toString();
 
 export default function Page() {
 	const [numPages, setNumPages] = useState<number | null>(null);
 	const [pageNumber, setPageNumber] = useState<number>(1);
-	const { width } = useViewportSize();
 
 	function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
 		setNumPages(numPages);
