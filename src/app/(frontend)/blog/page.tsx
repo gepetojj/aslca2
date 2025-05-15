@@ -2,34 +2,34 @@ import { Suspense } from "react";
 
 import { Footer } from "@/components/ui/footer";
 import { Header } from "@/components/ui/header";
-import { fetchNews } from "@/server/actions/news/fetch-news";
+import { fetchBlogPosts } from "@/server/actions/blog/fetch-blog-posts";
 import { IconSearch } from "@tabler/icons-react";
 
-import { NewsGrid } from "./_components/news-grid";
+import { PostsGrid } from "./_components/posts-grid";
 
 export const revalidate = 300; // 5 minutos
 
-export interface NewsSearchParams {
+export interface BlogSearchParams {
 	search?: string;
 	page?: string;
 }
 
-async function getInitialNews({ search, page }: NewsSearchParams) {
-	const result = await fetchNews({
+async function getInitialBlogPosts({ search, page }: BlogSearchParams) {
+	const result = await fetchBlogPosts({
 		search,
 		page: page ? parseInt(page) : 1,
 		perPage: 9,
 	});
 
 	return {
-		news: result.news,
+		posts: result.posts,
 		totalPages: result.totalPages,
 	};
 }
 
-export default async function Page({ searchParams }: { searchParams: Promise<NewsSearchParams> }) {
+export default async function Page({ searchParams }: { searchParams: Promise<BlogSearchParams> }) {
 	const { search, page } = await searchParams;
-	const { news: initialNews, totalPages } = await getInitialNews({ search, page });
+	const { posts: initialPosts, totalPages } = await getInitialBlogPosts({ search, page });
 
 	return (
 		<div className="min-h-screen bg-slate-50 font-serif text-gray-800">
@@ -39,9 +39,9 @@ export default async function Page({ searchParams }: { searchParams: Promise<New
 				<section className="relative bg-gray-200 py-20">
 					<div className="absolute inset-0 z-10 bg-gradient-to-r from-amber-800/70 to-amber-400/40"></div>
 					<div className="relative z-20 container mx-auto px-4 text-center">
-						<h1 className="mb-4 font-serif text-4xl font-bold text-white md:text-5xl">Notícias</h1>
+						<h1 className="mb-4 font-serif text-4xl font-bold text-white md:text-5xl">Postagens do blog</h1>
 						<p className="mx-auto max-w-2xl text-lg text-white">
-							Acompanhe as principais novidades e acontecimentos de Santana do Ipanema
+							Visualize produções culturais de Santana do Ipanema
 						</p>
 					</div>
 				</section>
@@ -49,7 +49,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<New
 				<section className="py-16">
 					<div className="container mx-auto px-4">
 						<form
-							action="/noticias"
+							action="/blog"
 							method="GET"
 							className="mb-12"
 						>
@@ -58,7 +58,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<New
 									type="text"
 									name="search"
 									defaultValue={search}
-									placeholder="Procure notícias..."
+									placeholder="Procure postagens..."
 									className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 pr-12 text-gray-700 focus:border-amber-800 focus:ring-1 focus:ring-amber-800 focus:outline-none"
 								/>
 								<button
@@ -77,8 +77,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<New
 								</div>
 							}
 						>
-							<NewsGrid
-								initialNews={initialNews}
+							<PostsGrid
+								initialPosts={initialPosts}
 								initialTotalPages={totalPages}
 								search={search}
 							/>
