@@ -70,12 +70,36 @@ export const Header: React.FC = memo(function Header() {
 								</Menu.Item>
 							</Menu.Dropdown>
 						</Menu>
-						<Link
-							href="/"
-							className="font-medium text-gray-700 transition-colors hover:text-amber-800"
+						<Menu
+							trigger="hover"
+							position="bottom"
+							withArrow
+							classNames={{
+								dropdown: "font-serif",
+							}}
 						>
-							Cadeiras
-						</Link>
+							<Menu.Target>
+								<button className="font-medium text-gray-700 transition-colors hover:text-amber-800">
+									Cadeiras
+								</button>
+							</Menu.Target>
+							<Menu.Dropdown>
+								<Menu.Item
+									component={Link}
+									href="/cadeiras/patronos"
+									className="!text-center"
+								>
+									Patronos
+								</Menu.Item>
+								<Menu.Item
+									component={Link}
+									href="/cadeiras/academicos"
+									className="!text-center"
+								>
+									Acadêmicos
+								</Menu.Item>
+							</Menu.Dropdown>
+						</Menu>
 						<Link
 							href="/noticias"
 							className="font-medium text-gray-700 transition-colors hover:text-amber-800"
@@ -143,13 +167,13 @@ export const Header: React.FC = memo(function Header() {
 						Estatuto
 					</Link>
 					<Link
-						href="/academicos"
+						href="/cadeiras/academicos"
 						className="font-medium text-gray-700 transition-colors hover:text-amber-800"
 					>
 						Acadêmicos
 					</Link>
 					<Link
-						href="/patronos"
+						href="/cadeiras/patronos"
 						className="font-medium text-gray-700 transition-colors hover:text-amber-800"
 					>
 						Patronos
