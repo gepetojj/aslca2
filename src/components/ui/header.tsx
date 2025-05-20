@@ -113,6 +113,12 @@ export const Header: React.FC = memo(function Header() {
 							Blog
 						</Link>
 						<Link
+							href="/comenda"
+							className="font-medium text-gray-700 transition-colors hover:text-amber-800"
+						>
+							Comenda Breno Accioly
+						</Link>
+						<Link
 							href="/contato"
 							className="font-medium text-gray-700 transition-colors hover:text-amber-800"
 						>
@@ -189,6 +195,12 @@ export const Header: React.FC = memo(function Header() {
 						className="font-medium text-gray-700 transition-colors hover:text-amber-800"
 					>
 						Blog
+					</Link>
+					<Link
+						href="/comenda"
+						className="font-medium text-gray-700 transition-colors hover:text-amber-800"
+					>
+						Comenda Breno Accioly
 					</Link>
 					<Link
 						href="/contato"

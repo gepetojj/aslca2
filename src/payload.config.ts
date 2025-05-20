@@ -12,6 +12,7 @@ import { pt } from "@payloadcms/translations/languages/pt";
 
 import { Academics } from "./collections/academics";
 import { BlogPosts } from "./collections/blog-posts";
+import { Commendations } from "./collections/commendations";
 import { Events } from "./collections/events";
 import { Media } from "./collections/media";
 import { News } from "./collections/news";
@@ -37,7 +38,7 @@ export default buildConfig({
 		},
 		user: Users.slug,
 	},
-	collections: [Users, Media, Patrons, Academics, News, BlogPosts, Events],
+	collections: [Users, Media, Patrons, Academics, News, BlogPosts, Events, Commendations],
 	globals: [Citation, Gallery],
 	db: vercelPostgresAdapter({
 		pool: {
@@ -58,12 +59,13 @@ export default buildConfig({
 			token: process.env.BLOB_READ_WRITE_TOKEN,
 		}),
 		searchPlugin({
-			collections: ["blog-posts", "news", "academics", "patrons"],
+			collections: ["blog-posts", "news", "academics", "patrons", "commendations"],
 			defaultPriorities: {
 				"blog-posts": 20,
 				"news": 20,
 				"academics": 10,
 				"patrons": 10,
+				"commendations": 10,
 			},
 		}),
 	],

@@ -74,6 +74,7 @@ export interface Config {
 		"news": News;
 		"blog-posts": BlogPost;
 		"events": Event;
+		"commendations": Commendation;
 		"search": Search;
 		"payload-jobs": PayloadJob;
 		"payload-locked-documents": PayloadLockedDocument;
@@ -96,6 +97,7 @@ export interface Config {
 		"news": NewsSelect<false> | NewsSelect<true>;
 		"blog-posts": BlogPostsSelect<false> | BlogPostsSelect<true>;
 		"events": EventsSelect<false> | EventsSelect<true>;
+		"commendations": CommendationsSelect<false> | CommendationsSelect<true>;
 		"search": SearchSelect<false> | SearchSelect<true>;
 		"payload-jobs": PayloadJobsSelect<false> | PayloadJobsSelect<true>;
 		"payload-locked-documents": PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -382,6 +384,33 @@ export interface Event {
 	createdAt: string;
 }
 /**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "commendations".
+ */
+export interface Commendation {
+	id: number;
+	name: string;
+	type: "civil" | "literary" | "artistic" | "scientific";
+	image: number | Media;
+	biography: {
+		root: {
+			type: string;
+			children: {
+				type: string;
+				version: number;
+				[k: string]: unknown;
+			}[];
+			direction: ("ltr" | "rtl") | null;
+			format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+			indent: number;
+			version: number;
+		};
+		[k: string]: unknown;
+	};
+	updatedAt: string;
+	createdAt: string;
+}
+/**
  * This is a collection of automatically created search results. These results are used by the global site search and will be updated automatically as documents in the CMS are created or updated.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -407,6 +436,10 @@ export interface Search {
 		| {
 				relationTo: "patrons";
 				value: number | Patron;
+		  }
+		| {
+				relationTo: "commendations";
+				value: number | Commendation;
 		  };
 	updatedAt: string;
 	createdAt: string;
@@ -537,6 +570,10 @@ export interface PayloadLockedDocument {
 		| ({
 				relationTo: "events";
 				value: number | Event;
+		  } | null)
+		| ({
+				relationTo: "commendations";
+				value: number | Commendation;
 		  } | null)
 		| ({
 				relationTo: "search";
@@ -754,6 +791,18 @@ export interface EventsSelect<T extends boolean = true> {
 	description?: T;
 	location?: T;
 	date?: T;
+	updatedAt?: T;
+	createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "commendations_select".
+ */
+export interface CommendationsSelect<T extends boolean = true> {
+	name?: T;
+	type?: T;
+	image?: T;
+	biography?: T;
 	updatedAt?: T;
 	createdAt?: T;
 }

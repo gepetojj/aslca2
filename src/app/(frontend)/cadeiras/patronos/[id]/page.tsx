@@ -30,14 +30,11 @@ export default async function Page({ params }: Readonly<{ params: Promise<{ id: 
 	const payload = await getPayload({ config: payloadConfig });
 	const { id } = await params;
 
-	const chairNumber = parseInt(id);
-	if (isNaN(chairNumber)) notFound();
-
 	const { docs: patrons } = await payload.find({
 		collection: "patrons",
 		where: {
-			chair: {
-				equals: chairNumber,
+			id: {
+				equals: id,
 			},
 		},
 		depth: 2,
