@@ -15,8 +15,8 @@ export const Header: React.FC = memo(function Header() {
 
 	return (
 		<header className="bg-white shadow-md">
-			<div className="container mx-auto px-4 py-3">
-				<div className="flex items-center justify-between">
+			<div className="mx-auto px-4 py-3">
+				<div className="flex items-center justify-between gap-6">
 					<div className="flex items-center space-x-3">
 						<Link href="/">
 							<div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full">
@@ -35,7 +35,7 @@ export const Header: React.FC = memo(function Header() {
 						</div>
 					</div>
 
-					<nav className="hidden items-center space-x-8 md:flex">
+					<nav className="hidden flex-wrap items-center space-x-8 md:flex">
 						<Link
 							href="/"
 							className="font-medium text-gray-700 transition-colors hover:text-amber-800"
