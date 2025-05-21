@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
 			id: parseInt(id),
 			depth: 1,
 		});
-	} catch (error) {
+	} catch {
 		return {
 			title: "Comenda não encontrada | Academia Santanense de Letras, Ciências e Artes",
 			description: "A comenda solicitada não foi encontrada ou não está mais disponível.",

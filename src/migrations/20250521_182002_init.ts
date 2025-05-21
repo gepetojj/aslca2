@@ -1,7 +1,7 @@
-import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-vercel-postgres'
+import { MigrateDownArgs, MigrateUpArgs, sql } from "@payloadcms/db-vercel-postgres";
 
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
-  await db.execute(sql`
+	await db.execute(sql`
    CREATE TYPE "public"."enum_users_role" AS ENUM('user', 'admin');
   CREATE TYPE "public"."enum_academics_type" AS ENUM('active', 'benemeritus', 'honorary', 'correspondent', 'inMemoriam');
   CREATE TYPE "public"."enum_news_status" AS ENUM('draft', 'published');
@@ -667,11 +667,11 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX IF NOT EXISTS "gallery_rels_order_idx" ON "gallery_rels" USING btree ("order");
   CREATE INDEX IF NOT EXISTS "gallery_rels_parent_idx" ON "gallery_rels" USING btree ("parent_id");
   CREATE INDEX IF NOT EXISTS "gallery_rels_path_idx" ON "gallery_rels" USING btree ("path");
-  CREATE INDEX IF NOT EXISTS "gallery_rels_media_id_idx" ON "gallery_rels" USING btree ("media_id");`)
+  CREATE INDEX IF NOT EXISTS "gallery_rels_media_id_idx" ON "gallery_rels" USING btree ("media_id");`);
 }
 
 export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
-  await db.execute(sql`
+	await db.execute(sql`
    DROP TABLE "users" CASCADE;
   DROP TABLE "media" CASCADE;
   DROP TABLE "patrons" CASCADE;
@@ -703,5 +703,5 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TYPE "public"."enum_commendations_type";
   DROP TYPE "public"."enum_payload_jobs_log_task_slug";
   DROP TYPE "public"."enum_payload_jobs_log_state";
-  DROP TYPE "public"."enum_payload_jobs_task_slug";`)
+  DROP TYPE "public"."enum_payload_jobs_task_slug";`);
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import clsx from "clsx";
 import Image from "next/image";
 import { memo, useCallback, useEffect, useState } from "react";
 
@@ -104,6 +103,7 @@ export const Gallery: React.FC<Props> = memo(function Gallery({
 								className="h-full w-full object-cover"
 							/>
 						) : (
+							// eslint-disable-next-line @next/next/no-img-element
 							<img
 								src={image.src}
 								alt={image.alt || ""}

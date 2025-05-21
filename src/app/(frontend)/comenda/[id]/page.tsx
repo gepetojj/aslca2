@@ -26,9 +26,9 @@ export async function generateStaticParams() {
 	}));
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
 	const payload = await getPayload({ config: payloadConfig });
-	const { id } = params;
+	const { id } = await params;
 
 	let commendation;
 	try {

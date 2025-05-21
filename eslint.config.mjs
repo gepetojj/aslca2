@@ -12,6 +12,9 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
 	...compat.extends("next/core-web-vitals", "next/typescript"),
+	...compat.config({
+		ignorePatterns: ["migrations/", "importMap.js", "payload-types.ts"],
+	}),
 	{
 		rules: {
 			"@typescript-eslint/ban-ts-comment": "warn",
