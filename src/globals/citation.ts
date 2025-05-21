@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { GlobalConfig } from "payload";
 
 export const Citation: GlobalConfig = {
@@ -5,6 +6,13 @@ export const Citation: GlobalConfig = {
 	access: {
 		read: () => true,
 		update: ({ req: { user } }) => !!user && user.role === "admin",
+	},
+	hooks: {
+		afterChange: [
+			() => {
+				revalidatePath("/");
+			},
+		],
 	},
 	admin: {
 		description: "Citação que aparece na página inicial.",

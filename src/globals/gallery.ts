@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { GlobalConfig } from "payload";
 
 export const Gallery: GlobalConfig = {
@@ -5,6 +6,13 @@ export const Gallery: GlobalConfig = {
 	access: {
 		read: () => true,
 		update: ({ req: { user } }) => !!user && user.role === "admin",
+	},
+	hooks: {
+		afterChange: [
+			() => {
+				revalidatePath("/");
+			},
+		],
 	},
 	admin: {
 		description: "Imagens que aparecem na tela inicial.",

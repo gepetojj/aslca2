@@ -52,12 +52,12 @@ export default async function HomePage() {
 							Preservando a cultura e promovendo o conhecimento em Santana do Ipanema.
 						</p>
 						<div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
-							<button
-								type="button"
+							<Link
+								href="/sobre/historia"
 								className="cursor-pointer rounded-md bg-white px-6 py-3 font-medium text-amber-900 transition-colors hover:bg-gray-100"
 							>
 								Conheça nossa história
-							</button>
+							</Link>
 							<Link
 								href="/eventos"
 								className="cursor-pointer rounded-md border border-white px-6 py-3 text-center font-medium text-white transition-colors hover:bg-white/10"
@@ -287,12 +287,12 @@ export default async function HomePage() {
 							<p className="mb-6 text-gray-600">
 								Não há eventos próximos agendados no momento. Por favor, verifique novamente em breve.
 							</p>
-							<a
+							<Link
 								href="/eventos"
 								className="inline-block rounded-md border border-amber-800 px-6 py-3 font-medium text-amber-800 transition-colors hover:bg-amber-800 hover:text-white"
 							>
 								Ver eventos passados
-							</a>
+							</Link>
 						</div>
 					)}
 				</div>

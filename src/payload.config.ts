@@ -66,7 +66,6 @@ export default buildConfig({
 				region: process.env.S3_REGION || "",
 			},
 			enabled: process.env.NODE_ENV === "production",
-			// enabled: true,
 		}),
 		searchPlugin({
 			collections: ["blog-posts", "news", "academics", "patrons", "commendations", "events"],
