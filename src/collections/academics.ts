@@ -95,6 +95,8 @@ export const Academics: CollectionConfig = {
 		afterChange: [
 			() => {
 				revalidatePath("/");
+				revalidatePath("/cadeiras/academicos");
+				revalidatePath("/cadeiras/academicos/[slug]", "page");
 			},
 		],
 	},

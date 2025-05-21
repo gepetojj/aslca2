@@ -238,7 +238,7 @@ export async function convertTipTapToLexical(
 			if (paragraph.children.length === 0) {
 				paragraph.children.push({
 					mode: "normal",
-					text: "Sem conteúdo",
+					text: "  ",
 					type: "text",
 					style: "",
 					detail: 0,
@@ -523,7 +523,7 @@ export async function convertTipTapToLexical(
 				children: [
 					{
 						mode: "normal",
-						text: "Sem conteúdo",
+						text: "  ",
 						type: "text",
 						style: "",
 						detail: 0,

@@ -60,6 +60,8 @@ export const Patrons: CollectionConfig = {
 		afterChange: [
 			() => {
 				revalidatePath("/");
+				revalidatePath("/cadeiras/patronos");
+				revalidatePath("/cadeiras/patronos/[slug]", "page");
 			},
 		],
 	},
