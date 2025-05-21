@@ -235,6 +235,18 @@ export async function convertTipTapToLexical(
 				}
 			}
 
+			if (paragraph.children.length === 0) {
+				paragraph.children.push({
+					mode: "normal",
+					text: "Sem conteúdo",
+					type: "text",
+					style: "",
+					detail: 0,
+					format: 0,
+					version: 1,
+				});
+			}
+
 			return paragraph;
 		}
 
@@ -508,8 +520,18 @@ export async function convertTipTapToLexical(
 				format: "",
 				indent: 0,
 				version: 1,
-				children: [],
-				direction: null,
+				children: [
+					{
+						mode: "normal",
+						text: "Sem conteúdo",
+						type: "text",
+						style: "",
+						detail: 0,
+						format: 0,
+						version: 1,
+					},
+				],
+				direction: "ltr",
 				textStyle: "",
 				textFormat: 0,
 			});

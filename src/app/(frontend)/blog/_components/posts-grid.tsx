@@ -6,7 +6,7 @@ import { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import { BlogPost } from "@/payload-types";
-import { fetchNews } from "@/server/actions/news/fetch-news";
+import { fetchBlogPosts } from "@/server/actions/blog/fetch-blog-posts";
 import { IconArrowRight, IconLoader, IconSearch } from "@tabler/icons-react";
 
 interface PostsGridProps {
@@ -20,24 +20,23 @@ export function PostsGrid({ initialPosts, initialTotalPages, search }: PostsGrid
 	const [page, setPage] = useState<number>(1);
 	const [loading, setLoading] = useState<boolean>(false);
 	const [hasMore, setHasMore] = useState<boolean>(initialTotalPages > 1);
-
-	const loadMoreNews = async () => {
+	const loadMorePosts = async () => {
 		if (loading) return;
 
 		setLoading(true);
 		try {
 			const nextPage = page + 1;
-			const result = await fetchNews({
+			const result = await fetchBlogPosts({
 				search,
 				page: nextPage,
 				perPage: 9,
 			});
 
-			setPosts(prevNews => [...prevNews, ...result.news]);
+			setPosts(prevPosts => [...prevPosts, ...result.posts]);
 			setPage(nextPage);
 			setHasMore(result.hasMore);
 		} catch (error) {
-			console.error("Erro ao carregar mais notícias:", error);
+			console.error("Erro ao carregar mais postagens:", error);
 		} finally {
 			setLoading(false);
 		}
@@ -70,7 +69,7 @@ export function PostsGrid({ initialPosts, initialTotalPages, search }: PostsGrid
 	return (
 		<InfiniteScroll
 			dataLength={posts.length}
-			next={loadMoreNews}
+			next={loadMorePosts}
 			hasMore={hasMore}
 			loader={
 				<div className="my-8 flex justify-center">

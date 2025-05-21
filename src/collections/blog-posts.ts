@@ -89,9 +89,9 @@ export const BlogPosts: CollectionConfig = {
 	hooks: {
 		afterChange: [
 			() => {
-				// revalidatePath("/");
-				// revalidatePath("/blog");
-				// revalidatePath("/blog/[slug]", "page");
+				revalidatePath("/");
+				revalidatePath("/blog");
+				revalidatePath("/blog/[slug]", "page");
 			},
 		],
 	},

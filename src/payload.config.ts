@@ -7,7 +7,7 @@ import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
 import { searchPlugin } from "@payloadcms/plugin-search";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
-import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
+import { s3Storage } from "@payloadcms/storage-s3";
 import { pt } from "@payloadcms/translations/languages/pt";
 
 import { Academics } from "./collections/academics";
@@ -51,12 +51,21 @@ export default buildConfig({
 	},
 	plugins: [
 		payloadCloudPlugin(),
-		vercelBlobStorage({
+		s3Storage({
 			collections: {
-				media: true,
+				"media": true,
+				"blog-posts": true,
+				"news": true,
+			},
+			bucket: process.env.S3_BUCKET || "",
+			config: {
+				credentials: {
+					accessKeyId: process.env.S3_ACCESS_KEY || "",
+					secretAccessKey: process.env.S3_SECRET_KEY || "",
+				},
+				region: process.env.S3_REGION || "",
 			},
 			enabled: process.env.NODE_ENV === "production",
-			token: process.env.BLOB_READ_WRITE_TOKEN,
 		}),
 		searchPlugin({
 			collections: ["blog-posts", "news", "academics", "patrons", "commendations", "events"],
