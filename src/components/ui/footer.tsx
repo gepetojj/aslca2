@@ -3,14 +3,14 @@ import Link from "next/link";
 import { memo } from "react";
 
 import logo from "@/assets/logo-aslca.webp";
-import { IconBrandInstagram, IconMail, IconMapPin } from "@tabler/icons-react";
+import { IconBrandInstagram, IconMail } from "@tabler/icons-react";
 
 export const Footer: React.FC = memo(function Footer() {
 	return (
 		<footer className="bg-gray-900 py-12 text-white">
 			<div className="container mx-auto px-4">
-				<div className="grid gap-10 md:grid-cols-3">
-					<div>
+				<div className="grid gap-10 md:grid-cols-4">
+					<div className="w-full max-w-[300px]">
 						<div className="mb-4 flex items-center space-x-3">
 							<div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-amber-700">
 								<Image
@@ -23,80 +23,143 @@ export const Footer: React.FC = memo(function Footer() {
 								<h4 className="font-serif text-lg font-bold">ASLCA</h4>
 							</div>
 						</div>
-						<p className="mb-4 text-gray-400">Receba nossas novidades e convites para eventos.</p>
-						<div className="flex">
-							<input
-								type="email"
-								placeholder="Seu e-mail"
-								className="w-full rounded-l-md bg-gray-800 px-4 py-2 text-white focus:ring-1 focus:ring-amber-500 focus:outline-none"
-							/>
-							<button className="rounded-r-md bg-amber-700 px-4 py-2 text-white transition-colors hover:bg-amber-800">
-								<svg
-									className="h-5 w-5"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										d="M14 5l7 7m0 0l-7 7m7-7H3"
-									></path>
-								</svg>
-							</button>
-						</div>
+						<p className="mb-4 text-gray-400">
+							Promovendo a literatura, cultura, ciência e arte em Santana do Ipanema, Alagoas.
+						</p>
 					</div>
 
 					<div>
-						<h4 className="mb-4 text-lg font-bold">Links Rápidos</h4>
+						<h4 className="mb-4 text-lg font-bold">Academias</h4>
 						<ul className="space-y-2">
-							{["Início", "Sobre", "Cadeiras", "Notícias", "Blog", "Contato"].map(item => (
-								<li key={item}>
-									<a
-										href="#"
-										className="text-gray-400 transition-colors hover:text-white"
-									>
-										{item}
-									</a>
-								</li>
-							))}
+							<li>
+								<Link
+									href="https://www.academia.org.br/"
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-gray-400 transition-colors hover:text-white"
+								>
+									ABL
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="https://www.aal.al.org.br/"
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-gray-400 transition-colors hover:text-white"
+								>
+									AAL
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="http://acala.org.br/"
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-gray-400 transition-colors hover:text-white"
+								>
+									ACALA
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="https://apalca.com.br/"
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-gray-400 transition-colors hover:text-white"
+								>
+									APALCA
+								</Link>
+							</li>
 						</ul>
 					</div>
-
 					<div>
-						<h4 className="mb-4 text-lg font-bold">Contato</h4>
-						<ul className="space-y-2 text-gray-400">
-							<li className="flex items-start">
-								<div className="shrink-0">
-									<IconMapPin
-										size={24}
-										className="mt-0.5 mr-2 h-5 w-5 text-amber-500"
-									/>
-								</div>
-								<p>
-									Rua Coronel Lucena, 196, Centro - Casa da Cultura de Santana do Ipanema, 57500-000
-									<br />
-									Santana do Ipanema, AL
-								</p>
-							</li>
-							<li className="flex items-center">
-								<svg
-									className="mr-2 h-5 w-5 text-amber-500"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-									xmlns="http://www.w3.org/2000/svg"
+						<h4 className="mb-4 text-lg font-bold">Blogs</h4>
+						<ul className="space-y-2">
+							<li>
+								<Link
+									href="https://www.apensocomgrifo.com/"
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-gray-400 transition-colors hover:text-white"
 								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-									></path>
-								</svg>
-								<p>contato@aslca.org.br</p>
+									Apenso com Grifo
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="https://clerisvaldobchagas.blogspot.com/"
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-gray-400 transition-colors hover:text-white"
+								>
+									Clerisvaldo Chagas
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="https://apalavraeparadizer.blogspot.com/"
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-gray-400 transition-colors hover:text-white"
+								>
+									A palavra é para dizer
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="https://blogdoetevaldo.blogspot.com/"
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-gray-400 transition-colors hover:text-white"
+								>
+									Blog do Etevaldo
+								</Link>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h4 className="mb-4 text-lg font-bold">Jornais da Região</h4>
+						<ul className="space-y-2">
+							<li>
+								<Link
+									href="https://www.maltanet.com.br/v2/"
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-gray-400 transition-colors hover:text-white"
+								>
+									Maltanet
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="https://d.gazetadealagoas.com.br/"
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-gray-400 transition-colors hover:text-white"
+								>
+									Gazeta de Alagoas
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="https://www.historiadealagoas.com.br/"
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-gray-400 transition-colors hover:text-white"
+								>
+									História de Alagoas
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="https://www.alagoasnanet.com.br/"
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-gray-400 transition-colors hover:text-white"
+								>
+									Alagoas na Net
+								</Link>
 							</li>
 						</ul>
 					</div>
