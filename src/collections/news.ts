@@ -57,15 +57,13 @@ export const News: CollectionConfig = {
 			validate: (value?: string | null) => {
 				if (!value) return "Título amigável é obrigatório";
 				if (value.length < 3) return "Título amigável deve ter pelo menos 3 caracteres";
-				if (value.length > 100) return "Título amigável deve ter no máximo 100 caracteres";
-				if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value))
-					return "Título amigável deve conter apenas letras minúsculas, números e hífens";
+				if (value.length > 300) return "Título amigável deve ter no máximo 300 caracteres";
 				if (value.startsWith("-") || value.endsWith("-"))
 					return "Título amigável não pode começar ou terminar com hífen";
 				if (value.includes(" ")) return "Título amigável não pode conter espaços";
 				return true;
 			},
-			maxLength: 100,
+			maxLength: 300,
 			minLength: 3,
 		},
 		{

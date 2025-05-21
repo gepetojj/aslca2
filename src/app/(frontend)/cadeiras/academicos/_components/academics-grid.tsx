@@ -101,7 +101,8 @@ export function AcademicsGrid({ initialAcademics, search }: AcademicsGridProps) 
 				<div className="flex flex-wrap border-b border-gray-200">
 					<button
 						onClick={() => setActiveTab("active")}
-						className={`px-4 py-2 text-sm font-medium ${
+						type="button"
+						className={`cursor-pointer px-4 py-2 text-sm font-medium ${
 							activeTab === "active"
 								? "border-b-2 border-amber-800 text-amber-800"
 								: "text-gray-600 hover:text-amber-800"
@@ -111,7 +112,8 @@ export function AcademicsGrid({ initialAcademics, search }: AcademicsGridProps) 
 					</button>
 					<button
 						onClick={() => setActiveTab("benemeritus")}
-						className={`px-4 py-2 text-sm font-medium ${
+						type="button"
+						className={`cursor-pointer px-4 py-2 text-sm font-medium ${
 							activeTab === "benemeritus"
 								? "border-b-2 border-amber-800 text-amber-800"
 								: "text-gray-600 hover:text-amber-800"
@@ -121,7 +123,8 @@ export function AcademicsGrid({ initialAcademics, search }: AcademicsGridProps) 
 					</button>
 					<button
 						onClick={() => setActiveTab("honorary")}
-						className={`px-4 py-2 text-sm font-medium ${
+						type="button"
+						className={`cursor-pointer px-4 py-2 text-sm font-medium ${
 							activeTab === "honorary"
 								? "border-b-2 border-amber-800 text-amber-800"
 								: "text-gray-600 hover:text-amber-800"
@@ -131,7 +134,8 @@ export function AcademicsGrid({ initialAcademics, search }: AcademicsGridProps) 
 					</button>
 					<button
 						onClick={() => setActiveTab("correspondent")}
-						className={`px-4 py-2 text-sm font-medium ${
+						type="button"
+						className={`cursor-pointer px-4 py-2 text-sm font-medium ${
 							activeTab === "correspondent"
 								? "border-b-2 border-amber-800 text-amber-800"
 								: "text-gray-600 hover:text-amber-800"
@@ -141,7 +145,8 @@ export function AcademicsGrid({ initialAcademics, search }: AcademicsGridProps) 
 					</button>
 					<button
 						onClick={() => setActiveTab("inMemoriam")}
-						className={`px-4 py-2 text-sm font-medium ${
+						type="button"
+						className={`cursor-pointer px-4 py-2 text-sm font-medium ${
 							activeTab === "inMemoriam"
 								? "border-b-2 border-amber-800 text-amber-800"
 								: "text-gray-600 hover:text-amber-800"

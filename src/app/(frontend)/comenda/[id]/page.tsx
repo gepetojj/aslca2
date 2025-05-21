@@ -80,7 +80,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
 				<div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
 					<div className="mb-8 flex flex-col gap-8 md:flex-row">
-						<div className="w-full flex-shrink-0 md:w-1/3">
+						<div className="w-full flex-shrink-0 rounded-md bg-white p-1 shadow-md md:w-1/3">
 							<div className="flex flex-col gap-3 overflow-hidden rounded-lg p-2">
 								{commendation.image && typeof commendation.image !== "number" && (
 									<>

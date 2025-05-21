@@ -4,13 +4,13 @@ import { getPayload } from "payload";
 import payloadConfig from "@/payload.config";
 
 interface Props {
-	params: {
+	params: Promise<{
 		slug: string;
-	};
+	}>;
 }
 
 export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
-	const slug = params.slug;
+	const { slug } = await params;
 
 	const payload = await getPayload({ config: payloadConfig });
 	const newsQuery = await payload.find({
