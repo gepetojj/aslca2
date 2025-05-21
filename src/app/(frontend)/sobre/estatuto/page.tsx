@@ -51,7 +51,7 @@ export default function Page() {
 									onLoadSuccess={onDocumentLoadSuccess}
 									loading={
 										<div className="flex h-[600px] w-full items-center justify-center">
-											<div className="text-center">
+											<div className="flex flex-col items-center justify-center text-center">
 												<div className="h-10 w-10 animate-spin rounded-full border-4 border-amber-600 border-t-transparent"></div>
 												<p className="mt-2 text-lg text-gray-600">Carregando documento...</p>
 											</div>

@@ -440,6 +440,10 @@ export interface Search {
     | {
         relationTo: 'commendations';
         value: number | Commendation;
+      }
+    | {
+        relationTo: 'events';
+        value: number | Event;
       };
   updatedAt: string;
   createdAt: string;

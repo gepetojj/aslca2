@@ -59,13 +59,14 @@ export default buildConfig({
 			token: process.env.BLOB_READ_WRITE_TOKEN,
 		}),
 		searchPlugin({
-			collections: ["blog-posts", "news", "academics", "patrons", "commendations"],
+			collections: ["blog-posts", "news", "academics", "patrons", "commendations", "events"],
 			defaultPriorities: {
 				"blog-posts": 20,
 				"news": 20,
 				"academics": 10,
 				"patrons": 10,
 				"commendations": 10,
+				"events": 10,
 			},
 		}),
 	],
