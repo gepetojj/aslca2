@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { getPayload } from "payload";
 
@@ -8,6 +9,7 @@ import { Media } from "@/payload-types";
 import payloadConfig from "@/payload.config";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 
+import logo from "../../../public/logo.webp";
 import { LatestBlogPost } from "./_components/latest-blog-post";
 import { LatestNews } from "./_components/latest-news";
 
@@ -43,6 +45,18 @@ export default async function HomePage() {
 
 			<section className="relative h-96 overflow-hidden bg-gray-200">
 				<div className="absolute inset-0 z-10 bg-gradient-to-r from-amber-800/70 to-amber-400/40"></div>
+				<div className="absolute inset-0 z-15 hidden size-full items-center justify-end px-14 lg:flex">
+					<div className="relative">
+						<Image
+							src={logo}
+							alt="Logo da ASLCA"
+							className="w-[270px]"
+						/>
+						<span className="absolute right-0 bottom-0 z-10 rounded-md bg-[#6f250c] px-2 py-1 text-white">
+							{new Date().getFullYear() - 2012} anos
+						</span>
+					</div>
+				</div>
 				<div className="relative z-20 container mx-auto flex h-full items-center px-4">
 					<div className="max-w-2xl text-white">
 						<h2 className="mb-4 font-serif text-4xl font-bold md:text-5xl">

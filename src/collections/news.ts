@@ -89,7 +89,6 @@ export const News: CollectionConfig = {
 	hooks: {
 		afterChange: [
 			() => {
-				revalidatePath("/");
 				revalidatePath("/noticias");
 				revalidatePath("/noticias/[slug]", "page");
 			},
