@@ -52,9 +52,6 @@ export default async function HomePage() {
 							alt="Logo da ASLCA"
 							className="w-[270px]"
 						/>
-						<span className="absolute right-0 bottom-0 z-10 rounded-md bg-[#6f250c] px-2 py-1 text-white">
-							{new Date().getFullYear() - 2012} anos
-						</span>
 					</div>
 				</div>
 				<div className="relative z-20 container mx-auto flex h-full items-center px-4">
@@ -128,57 +125,6 @@ export default async function HomePage() {
 					</div>
 				</div>
 			</section>
-
-			{/* Featured Academicians */}
-			{/* <section className="bg-amber-50 py-16">
-				<div className="container mx-auto px-4">
-					<div className="mb-12 text-center">
-						<h3 className="mb-4 font-serif text-3xl font-bold text-gray-800">Membros em Destaque</h3>
-						<p className="mx-auto max-w-3xl text-gray-600">
-							Conheça alguns dos nossos ilustres membros que contribuem para o enriquecimento cultural e
-							científico de Santana do Ipanema.
-						</p>
-					</div>
-
-					<div className="grid gap-8 md:grid-cols-3">
-						{[1, 2, 3].map(item => (
-							<div
-								key={item}
-								className="rounded-lg bg-white p-6 text-center shadow-md"
-							>
-								<div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full">
-									<img
-										src="/api/placeholder/96/96"
-										alt="Membro"
-										className="h-full w-full object-cover"
-									/>
-								</div>
-								<h4 className="mb-1 text-xl font-bold text-gray-800">Nome do Membro</h4>
-								<p className="mb-4 text-amber-800">Cadeira Nº {item}</p>
-								<p className="mb-4 text-gray-600">
-									Breve biografia do membro destacando suas contribuições para a academia e para a
-									sociedade.
-								</p>
-								<a
-									href="#"
-									className="font-medium text-amber-800 hover:text-amber-900"
-								>
-									Ver perfil completo
-								</a>
-							</div>
-						))}
-					</div>
-
-					<div className="mt-10 text-center">
-						<a
-							href="#"
-							className="inline-block rounded-md border border-amber-800 px-6 py-3 font-medium text-amber-800 transition-colors hover:bg-amber-800 hover:text-white"
-						>
-							Ver todos os membros
-						</a>
-					</div>
-				</div>
-			</section> */}
 
 			{/* Events */}
 			<section className="py-16">

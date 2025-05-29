@@ -180,8 +180,8 @@ export const Gallery: React.FC<Props> = memo(function Gallery({
 				</div>
 			</div>
 
-			<div className="w-full max-w-full truncate">
-				<span className="mt-1 w-full max-w-full truncate text-sm text-neutral-800">
+			<div className="w-full max-w-full text-center">
+				<span className="mt-1 w-full max-w-full text-center text-sm text-neutral-800">
 					{images[currentSlide].alt}
 				</span>
 			</div>
