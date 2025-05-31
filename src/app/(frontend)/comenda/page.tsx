@@ -82,8 +82,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<Com
 								</p>
 								<p>
 									Instituída em homenagem ao ilustre escritor alagoano Breno Accioly, nascido em
-									Santana do Ipanema, a comenda reconhece e celebra indivíduos que, por meio de seus
-									trabalhos e ações, promovem o desenvolvimento cultural, artístico, científico e
+									Santana do Ipanema, a comenda reconhece e celebra personalidades que, por meio de
+									seus trabalhos e ações, promovem o desenvolvimento cultural, artístico, científico e
 									social da comunidade.
 								</p>
 								<h3>Categorias da Comenda</h3>
@@ -94,21 +94,22 @@ export default async function Page({ searchParams }: { searchParams: Promise<Com
 								<ul>
 									<li>
 										<strong>Civil</strong>: Destinada a líderes comunitários, funcionários públicos,
-										empresários e cidadãos que se destacam por suas contribuições ao desenvolvimento
-										social e econômico da comunidade.
+										empresários e cidadãos, políticos que se destacam por suas contribuições ao
+										desenvolvimento cultural, social e econômico da comunidade.
 									</li>
 									<li>
 										<strong>Literário</strong>: Honra escritores, poetas, jornalistas e educadores
 										que promovem o desenvolvimento da literatura e da educação.
 									</li>
 									<li>
-										<strong>Artístico</strong>: Reconhece artistas visuais, músicos, atores,
-										dançarinos e outros profissionais que enriquecem a cena cultural com seu talento
-										e criatividade.
+										<strong>Artístico</strong>: Reconhece artistas visuais, artesãos, músicos,
+										compositores e outros profissionais que enriquecem a cena cultural com seu
+										talento e criatividade.
 									</li>
 									<li>
-										<strong>Científico</strong>: Premia pesquisadores, médicos, engenheiros e outros
-										profissionais que contribuem para o avanço científico e tecnológico.
+										<strong>Científico</strong>: Premia pesquisadores, médicos, professores,
+										engenheiros e outros profissionais que contribuem para o avanço educacional,
+										científico e tecnológico da região.
 									</li>
 								</ul>
 							</div>
