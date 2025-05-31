@@ -42,26 +42,52 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
 			description: "O patrono solicitado não foi encontrado ou não está mais disponível.",
 		};
 	}
-
 	// Obter a base URL
 	const parentMetadata = await parent;
 	const previousImages = parentMetadata?.openGraph?.images || [];
 	const imageUrl = typeof patron.image !== "number" ? patron.image?.url : undefined;
 
+	// Preparar URL completa para o perfil
+	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aslca.org.br";
+	const fullUrl = `${siteUrl}/cadeiras/patronos/${patron.chair}`;
+
+	// Preparar descrição
+	const description = `Conheça ${patron.name}, patrono da Cadeira Nº ${patron.chair} da Academia Santanense de Letras, Ciências e Artes.`;
+
 	return {
 		title: `${patron.name} | Cadeira Nº ${patron.chair} | Academia Santanense de Letras, Ciências e Artes`,
-		description: `Conheça ${patron.name}, patrono da Cadeira Nº ${patron.chair} da Academia Santanense de Letras, Ciências e Artes.`,
+		description,
 		openGraph: {
 			title: `${patron.name} | Cadeira Nº ${patron.chair}`,
-			description: `Conheça ${patron.name}, patrono da Cadeira Nº ${patron.chair} da Academia Santanense de Letras, Ciências e Artes.`,
+			description,
 			images: imageUrl ? [imageUrl, ...previousImages] : [...previousImages],
 			type: "profile",
+			url: fullUrl,
 		},
 		twitter: {
 			card: "summary_large_image",
 			title: `${patron.name} | Cadeira Nº ${patron.chair}`,
-			description: `Conheça ${patron.name}, patrono da Cadeira Nº ${patron.chair} da Academia Santanense de Letras, Ciências e Artes.`,
-			images: imageUrl ? [imageUrl, ...previousImages] : [...previousImages],
+			description,
+			images: imageUrl ? [imageUrl] : [...previousImages],
+		},
+		alternates: {
+			canonical: fullUrl,
+		},
+		other: {
+			"json-ld": [
+				JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "Person",
+					"name": patron.name,
+					"description": description,
+					"image": imageUrl,
+					"honorificPrefix": "Patrono",
+					"mainEntityOfPage": {
+						"@type": "WebPage",
+						"@id": fullUrl,
+					},
+				}),
+			],
 		},
 	};
 }

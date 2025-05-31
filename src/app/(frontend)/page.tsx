@@ -5,6 +5,7 @@ import { getPayload } from "payload";
 import { Footer } from "@/components/ui/footer";
 import { Gallery } from "@/components/ui/gallery";
 import { Header } from "@/components/ui/header";
+import SchemaOrg from "@/components/ui/schema-org";
 import { Media } from "@/payload-types";
 import payloadConfig from "@/payload.config";
 import { RichText } from "@payloadcms/richtext-lexical/react";
@@ -34,9 +35,44 @@ export default async function HomePage() {
 	]);
 	const images = (gallery?.images as Media[]) || [];
 
+	// Preparar metadados estruturados para eventos
+	const eventsJsonLd = events.docs.map(event => {
+		const imageUrl =
+			event.image && typeof event.image !== "string" && (event.image as Media).url
+				? (event.image as Media).url
+				: "https://aslca.org.br/api/media/placeholder.png";
+
+		return {
+			"@context": "https://schema.org",
+			"@type": "Event",
+			"name": event.title,
+			"description": event.description || event.title,
+			"startDate": event.date,
+			"location": {
+				"@type": "Place",
+				"name": event.location,
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Santana do Ipanema",
+					"addressRegion": "AL",
+					"addressCountry": "BR",
+				},
+			},
+			"image": imageUrl,
+			"organizer": {
+				"@type": "Organization",
+				"name": "Academia Santanense de Letras, Ciências e Artes",
+				"url": "https://aslca.org.br",
+			},
+		};
+	});
+
 	return (
 		<div className="min-h-screen bg-slate-50 font-serif text-gray-800">
 			<Header />
+
+			{/* Adicionar metadados estruturados para eventos */}
+			<SchemaOrg jsonLd={eventsJsonLd} />
 
 			<section className="relative h-96 overflow-hidden bg-gray-200">
 				<div className="absolute inset-0 z-10 bg-gradient-to-r from-amber-800/70 to-amber-400/40"></div>

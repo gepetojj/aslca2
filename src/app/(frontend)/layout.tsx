@@ -5,11 +5,9 @@ import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 
 import "./globals.css";
+import JsonLd from "./script-tags";
 
-export const metadata = {
-	description: "Site institucional e acervo digital da Academia Santanense de Letras, Ciências e Artes",
-	title: "Academia Santanense de Letras, Ciências e Artes",
-};
+export { metadata } from "./metadata";
 
 export default async function RootLayout({
 	children,
@@ -22,6 +20,19 @@ export default async function RootLayout({
 				lang="pt-BR"
 				dir="ltr"
 			>
+				<head>
+					<JsonLd
+						jsonLd={[
+							JSON.stringify({
+								"@context": "https://schema.org",
+								"@type": "Organization",
+								"name": "Academia Santanense de Letras, Ciências e Artes",
+								"url": "https://aslca.org.br",
+								"logo": "https://aslca.org.br/logo.webp",
+							}),
+						]}
+					/>
+				</head>
 				<body>
 					<MantineProvider>{children}</MantineProvider>
 				</body>
