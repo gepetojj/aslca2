@@ -29,12 +29,7 @@ export default async function HomePage() {
 		payload.find({
 			collection: "events",
 			limit: 3,
-			sort: "-date",
-			where: {
-				date: {
-					greater_than_equal: new Date().toISOString(),
-				},
-			},
+			sort: "-createdAt",
 		}),
 	]);
 	const images = (gallery?.images as Media[]) || [];
@@ -45,7 +40,7 @@ export default async function HomePage() {
 
 			<section className="relative h-96 overflow-hidden bg-gray-200">
 				<div className="absolute inset-0 z-10 bg-gradient-to-r from-amber-800/70 to-amber-400/40"></div>
-				<div className="absolute inset-0 z-15 hidden size-full items-center justify-end px-14 lg:flex">
+				<div className="absolute inset-0 z-15 hidden size-full items-center justify-end px-14 pr-24 lg:flex">
 					<div className="relative">
 						<Image
 							src={logo}
@@ -158,21 +153,10 @@ export default async function HomePage() {
 							{events.docs.map((event, index) => (
 								<div
 									key={index}
-									className="overflow-hidden rounded-lg bg-white shadow-md"
+									className="h-fit overflow-hidden rounded-lg bg-white shadow-md"
 								>
 									<div className="bg-amber-800 p-3 text-center text-white">
-										<p className="text-lg font-bold">
-											{new Date(event.date).toLocaleString("pt-BR", {
-												day: "2-digit",
-												month: "long",
-												year:
-													new Date(event.date).getFullYear() > new Date().getFullYear()
-														? "numeric"
-														: undefined,
-												hour: "2-digit",
-												minute: "2-digit",
-											})}
-										</p>
+										<p className="text-lg font-bold">{event.date}</p>
 									</div>
 									<div className="p-6">
 										<h4 className="mb-2 text-xl font-bold text-gray-800">{event.title}</h4>
@@ -199,26 +183,18 @@ export default async function HomePage() {
 											</svg>
 											<p className="text-gray-600">{event.location}</p>
 										</div>
-										<Link
-											href={`/eventos/${event.id}`}
-											className="flex items-center font-medium text-amber-800 hover:text-amber-900"
-										>
-											Saiba mais
-											<svg
-												className="ml-2 h-4 w-4"
-												fill="none"
-												stroke="currentColor"
-												viewBox="0 0 24 24"
-												xmlns="http://www.w3.org/2000/svg"
-											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													strokeWidth="2"
-													d="M14 5l7 7m0 0l-7 7m7-7H3"
-												></path>
-											</svg>
-										</Link>
+										{event.description && <p>{event.description}</p>}
+										{event.image && (
+											<div className="mt-4">
+												<Image
+													src={(event.image as Media).url || ""}
+													alt={(event.image as Media).alt || "Imagem do evento"}
+													width={600}
+													height={400}
+													className="rounded-lg"
+												/>
+											</div>
+										)}
 									</div>
 								</div>
 							))}

@@ -380,6 +380,7 @@ export interface Event {
   description?: string | null;
   location: string;
   date: string;
+  image?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -795,6 +796,7 @@ export interface EventsSelect<T extends boolean = true> {
   description?: T;
   location?: T;
   date?: T;
+  image?: T;
   updatedAt?: T;
   createdAt?: T;
 }

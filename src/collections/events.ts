@@ -43,17 +43,19 @@ export const Events: CollectionConfig = {
 		{
 			label: "Data do evento",
 			name: "date",
-			type: "date",
 			required: true,
 			index: true,
+			type: "text",
 			admin: {
-				date: {
-					displayFormat: "d 'de' MMM 'de' yyy 'às' HH:mm",
-					timeFormat: "HH:mm",
-					pickerAppearance: "dayAndTime",
-				},
 				placeholder: "Data do evento",
 			},
+		},
+		{
+			label: "Imagem",
+			name: "image",
+			required: false,
+			type: "upload",
+			relationTo: "media",
 		},
 	],
 	hooks: {
