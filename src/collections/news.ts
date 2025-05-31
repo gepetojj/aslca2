@@ -1,5 +1,6 @@
 import { randomInt } from "crypto";
 import { revalidatePath } from "next/cache";
+import { after } from "next/server";
 import type { CollectionConfig } from "payload";
 import slugify from "slugify";
 
@@ -89,8 +90,10 @@ export const News: CollectionConfig = {
 	hooks: {
 		afterChange: [
 			() => {
-				revalidatePath("/noticias");
-				revalidatePath("/noticias/[slug]", "page");
+				after(() => {
+					revalidatePath("/noticias");
+					revalidatePath("/noticias/[slug]", "page");
+				});
 			},
 		],
 	},
