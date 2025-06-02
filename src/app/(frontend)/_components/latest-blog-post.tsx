@@ -41,7 +41,9 @@ export async function LatestBlogPost() {
 					<div className="w-2/3 p-6">
 						<h4 className="mb-2 text-xl font-bold text-gray-800">{post.title}</h4>
 						<p className="mb-4 text-gray-600">
-							{post.description.length > 100 ? `${post.description.slice(0, 100)}...` : post.description}
+							{post.description && post.description.length > 100
+								? `${post.description.slice(0, 100)}...`
+								: post.description}
 						</p>
 						<Link
 							href={`/blog/${post.slug}`}

@@ -184,7 +184,7 @@ export default async function HomePage() {
 						</Link>
 					</div>
 
-					{events.docs.length > 0 ? (
+					{(events.docs || []).length > 0 ? (
 						<div className="grid gap-8 md:grid-cols-3">
 							{events.docs.map((event, index) => (
 								<div

@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { Suspense } from "react";
 
+import medal from "@/assets/medalha.png";
 import { Footer } from "@/components/ui/footer";
 import { Header } from "@/components/ui/header";
 import { fetchCommendations } from "@/server/actions/commendations/fetch-commendations";
@@ -39,12 +41,19 @@ export default async function Page({ searchParams }: { searchParams: Promise<Com
 
 			<main>
 				<section className="relative bg-gray-200 py-20">
+					<div className="absolute inset-0 z-20 hidden size-full items-center justify-end mask-no-clip px-16 lg:flex">
+						<Image
+							src={medal}
+							alt="Medalha da comenda"
+							className="w-full max-w-[190px]"
+						/>
+					</div>
 					<div className="absolute inset-0 z-10 bg-gradient-to-r from-amber-800/70 to-amber-400/40"></div>
-					<div className="relative z-20 container mx-auto px-4 text-center">
+					<div className="relative z-20 container mx-auto px-4 text-left">
 						<h1 className="mb-4 font-serif text-4xl font-bold text-white md:text-5xl">
 							Comenda Breno Accioly
 						</h1>
-						<p className="mx-auto max-w-2xl text-lg text-white">
+						<p className="max-w-2xl text-lg text-white">
 							Reconhecimento da Academia Santanense de Letras, Ciências e Artes a cidadãos que se destacam
 							em suas áreas de atuação
 						</p>
@@ -81,10 +90,10 @@ export default async function Page({ searchParams }: { searchParams: Promise<Com
 									significativas à sociedade de Santana do Ipanema e região.
 								</p>
 								<p>
-									Instituída em homenagem ao ilustre escritor alagoano Breno Accioly, nascido em
-									Santana do Ipanema, a comenda reconhece e celebra personalidades que, por meio de
-									seus trabalhos e ações, promovem o desenvolvimento cultural, artístico, científico e
-									social da comunidade.
+									A comenda foi instituída em homenagem ao ilustre escritor alagoano Breno Accioly,
+									nascido em Santana do Ipanema, que reconhece e celebra personalidades que, por meio
+									de seus trabalhos e ações, promovem o desenvolvimento cultural, artístico,
+									científico e social da comunidade.
 								</p>
 								<h3>Categorias da Comenda</h3>
 								<p>

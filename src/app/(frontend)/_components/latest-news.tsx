@@ -41,7 +41,9 @@ export async function LatestNews() {
 					<div className="w-2/3 p-6">
 						<h4 className="mb-2 text-xl font-bold text-gray-800">{news.title}</h4>
 						<p className="mb-4 text-gray-600">
-							{news.description.length > 100 ? `${news.description.slice(0, 100)}...` : news.description}
+							{news.description && news.description.length > 100
+								? `${news.description.slice(0, 100)}...`
+								: news.description}
 						</p>
 						<Link
 							href={`/noticias/${news.slug}`}
