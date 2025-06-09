@@ -44,13 +44,13 @@ export const BlogPosts: CollectionConfig = {
 			hooks: {
 				beforeValidate: [
 					({ data }) => {
-						if (data?.title) return slugify(data.title, { lower: true });
+						if (data?.title) return encodeURIComponent(slugify(data.title, { lower: true }));
 						return data?.slug;
 					},
 				],
 				beforeDuplicate: [
 					({ value }) => {
-						value = slugify(value, { lower: true }) + "-" + randomInt(1000, 9999);
+						value = encodeURIComponent(slugify(value, { lower: true }) + "-" + randomInt(1000, 9999));
 						return value;
 					},
 				],
