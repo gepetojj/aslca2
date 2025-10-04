@@ -116,6 +116,16 @@ export const Footer: React.FC = memo(function Footer() {
 									Blog do Etevaldo
 								</Link>
 							</li>
+							<li>
+								<Link
+									href="https://fabiosoarescampos.blogspot.com/"
+									rel="noopener noreferrer"
+									target="_blank"
+									className="text-gray-400 transition-colors hover:text-white"
+								>
+									Blog do Fábio Soares
+								</Link>
+							</li>
 						</ul>
 					</div>
 					<div>
@@ -195,3 +205,4 @@ export const Footer: React.FC = memo(function Footer() {
 		</footer>
 	);
 });
+
