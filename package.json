@@ -1,86 +1,86 @@
 {
-	"name": "aslca2",
-	"description": "Website institucional da Academia Santanense de Letras, Ciências e Artes",
-	"version": "1.0.0",
-	"license": "MIT",
-	"type": "module",
-	"packageManager": "pnpm@10.9.0",
-	"scripts": {
-		"build": "cross-env NODE_OPTIONS=--no-deprecation next build",
-		"dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
-		"devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
-		"generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
-		"generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
-		"lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
-		"payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-		"start": "cross-env NODE_OPTIONS=--no-deprecation next start",
-		"format": "prettier --write .",
-		"commit": "git cz"
-	},
-	"dependencies": {
-		"@mantine/core": "^7.17.5",
-		"@mantine/dates": "^7.17.5",
-		"@mantine/hooks": "^7.17.5",
-		"@payloadcms/db-vercel-postgres": "3.36.0",
-		"@payloadcms/next": "3.36.0",
-		"@payloadcms/payload-cloud": "3.36.0",
-		"@payloadcms/plugin-search": "3.36.0",
-		"@payloadcms/richtext-lexical": "3.36.0",
-		"@payloadcms/storage-s3": "3.36.0",
-		"@payloadcms/storage-vercel-blob": "3.36.0",
-		"@payloadcms/translations": "3.36.0",
-		"@tabler/icons-react": "^3.31.0",
-		"@tailwindcss/typography": "^0.5.16",
-		"clsx": "^2.1.1",
-		"cross-env": "^7.0.3",
-		"dayjs": "^1.11.13",
-		"graphql": "^16.10.0",
-		"next": "15.3.1",
-		"payload": "3.36.0",
-		"pdfjs-dist": "4.8.69",
-		"react": "19.1.0",
-		"react-dom": "19.1.0",
-		"react-infinite-scroll-component": "^6.1.0",
-		"react-pdf": "^9.2.1",
-		"sharp": "0.34.1",
-		"slugify": "^1.6.6"
-	},
-	"devDependencies": {
-		"@eslint/eslintrc": "^3.3.1",
-		"@next/eslint-plugin-next": "^15.3.2",
-		"@tailwindcss/postcss": "^4.1.4",
-		"@trivago/prettier-plugin-sort-imports": "^5.2.2",
-		"@types/node": "^22.14.1",
-		"@types/react": "19.1.2",
-		"@types/react-dom": "19.1.2",
-		"commitizen": "^4.3.1",
-		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^9.25.1",
-		"eslint-config-next": "15.3.1",
-		"eslint-plugin-react-hooks": "^5.2.0",
-		"postcss": "^8.5.3",
-		"prettier": "^3.5.3",
-		"prettier-plugin-tailwindcss": "^0.6.11",
-		"tailwindcss": "^4.1.4",
-		"tsx": "^4.19.4",
-		"typescript": "5.8.3"
-	},
-	"engines": {
-		"node": "^18.20.2 || >=20.9.0",
-		"pnpm": "^9 || ^10"
-	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"bufferutil",
-			"canvas",
-			"esbuild",
-			"sharp",
-			"utf-8-validate"
-		]
-	},
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
-		}
-	}
+  "name": "aslca2",
+  "description": "Website institucional da Academia Santanense de Letras, Ciências e Artes",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@10.9.0",
+  "scripts": {
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "format": "prettier --write .",
+    "commit": "git cz"
+  },
+  "dependencies": {
+    "@mantine/core": "^7.17.5",
+    "@mantine/dates": "^7.17.5",
+    "@mantine/hooks": "^7.17.5",
+    "@payloadcms/db-vercel-postgres": "3.36.0",
+    "@payloadcms/next": "3.36.0",
+    "@payloadcms/payload-cloud": "3.36.0",
+    "@payloadcms/plugin-search": "3.36.0",
+    "@payloadcms/richtext-lexical": "3.36.0",
+    "@payloadcms/storage-s3": "3.36.0",
+    "@payloadcms/storage-vercel-blob": "3.36.0",
+    "@payloadcms/translations": "3.36.0",
+    "@tabler/icons-react": "^3.31.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "clsx": "^2.1.1",
+    "cross-env": "^7.0.3",
+    "dayjs": "^1.11.13",
+    "graphql": "^16.10.0",
+    "next": "15.3.8",
+    "payload": "3.36.0",
+    "pdfjs-dist": "4.8.69",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-infinite-scroll-component": "^6.1.0",
+    "react-pdf": "^9.2.1",
+    "sharp": "0.34.1",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@next/eslint-plugin-next": "^15.3.2",
+    "@tailwindcss/postcss": "^4.1.4",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@types/node": "^22.14.1",
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.25.1",
+    "eslint-config-next": "15.3.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^4.1.4",
+    "tsx": "^4.19.4",
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": "^18.20.2 || >=20.9.0",
+    "pnpm": "^9 || ^10"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "bufferutil",
+      "canvas",
+      "esbuild",
+      "sharp",
+      "utf-8-validate"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
